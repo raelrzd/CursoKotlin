@@ -12,15 +12,15 @@ fun main() {
     contaGui.numero = 1001
     contaGui.saldo = 1500.0
 
-    println(contaRael.titular)
-    println(contaRael.numero)
-    println(contaRael.saldo)
+    println("Titular da conta: ${contaRael.titular}")
+    println("Numero da conta: ${contaRael.numero}")
+    println("Saldo: R$ ${contaRael.saldo}")
 
     println()
 
-    println(contaGui.titular)
-    println(contaGui.numero)
-    println(contaGui.saldo)
+    println("Titular da conta: ${contaGui.titular}")
+    println("Numero da conta: ${contaGui.numero}")
+    println("Saldo: R$ ${contaGui.saldo}")
 
 }
 

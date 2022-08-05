@@ -23,22 +23,16 @@ fun main() {
     println("Saldo: R$ ${contaGui.saldo}")
 
     println()
-//    println("Depositando na conta do Rael")
-    deposita(contaRael, 950.0)
-//    println("Saldo atualizado: R$${contaRael.saldo}")
+    contaRael.deposita(950.0)
 
     println()
-//    println("Depositando na conta do Gui")
-    deposita(contaGui, 950.0)
-//    println("Saldo atualizado: R$${contaGui.saldo}")
+    contaGui.deposita(950.0)
 
-}
+    println()
+    contaRael.saca(1000.0)
 
-
-fun deposita(conta: Conta, valor: Double) {
-    println("Depositando na conta de ${conta.titular}")
-    conta.saldo += valor
-    println("Saldo atualizado: R$${conta.saldo}")
+    println()
+    contaGui.saca(2500.0)
 
 }
 
@@ -47,6 +41,23 @@ class Conta {
     var titular = ""
     var numero = 0
     var saldo = 0.0
+
+    fun deposita(valor: Double) {
+        println("Depositando na conta de ${titular}")
+        saldo += valor
+        println("Saldo atualizado: R$${saldo}")
+    }
+
+    fun saca(valor: Double){
+        println("Valor de saque solicitado: R$$valor\nVerificando possibilidade de saque na conta de $titular...")
+        if (saldo >= valor){
+            saldo-=valor
+            println("Saldo atualizado: $saldo")
+        } else {
+            println("Não foi possível efetuar o saque!\nSaldo atual: $saldo")
+        }
+    }
+
 }
 
 

@@ -5,22 +5,22 @@ fun main() {
     val contaRael = Conta()
     contaRael.titular = "Rael RZD"
     contaRael.numero = 1000
-    contaRael.setSaldo(1000.0)
+    contaRael.deposita(1000.0)
 
     val contaGui = Conta()
     contaGui.titular = "Gui Paizao"
     contaGui.numero = 1001
-    contaGui.setSaldo(1500.0)
+    contaGui.deposita(1500.0)
 
     println("Titular da conta: ${contaRael.titular}")
     println("Numero da conta: ${contaRael.numero}")
-    println("Saldo: R$ ${contaRael.getSaldo()}")
+    println("Saldo: R$ ${contaRael.saldo}")
 
     println()
 
     println("Titular da conta: ${contaGui.titular}")
     println("Numero da conta: ${contaGui.numero}")
-    println("Saldo: R$ ${contaGui.getSaldo()}")
+    println("Saldo: R$ ${contaGui.saldo}")
 
     println()
     contaRael.deposita(950.0)
@@ -36,7 +36,7 @@ fun main() {
 
     println()
     println("Verificando possibilidade  de transferencia...")
-    if (contaRael.transfere(450.0, contaGui)){
+    if (contaRael.transfere(450.0, contaGui)) {
         println("Transferencia realizada com sucesso!")
     } else {
         println("Transferencia mal sucedida!")
@@ -44,8 +44,8 @@ fun main() {
 
 
     println()
-    println("Saldo atualizado: R$ ${contaRael.getSaldo()}")
-    println("Saldo atualizado: R$ ${contaGui.getSaldo()}")
+    println("Saldo atualizado: R$ ${contaRael.saldo}")
+    println("Saldo atualizado: R$ ${contaGui.saldo}")
 
 }
 
@@ -53,43 +53,46 @@ fun main() {
 class Conta {
     var titular = ""
     var numero = 0
-    private var saldo = 0.0
+    var saldo = 0.0
+        private set
 
     fun deposita(valor: Double) {
-        println("Depositando na conta de ${titular}")
-        saldo += valor
-        println("Saldo atualizado: R$${saldo}")
+        if (valor > 0) {
+            println("Depositando na conta de ${titular}")
+            this.saldo += valor
+            println("Saldo atualizado: R$${saldo}")
+        }
     }
 
-    fun saca(valor: Double){
+    fun saca(valor: Double) {
         println("Valor de saque solicitado: R$$valor\nVerificando possibilidade de saque na conta de $titular...")
-        if (saldo >= valor){
-            saldo-=valor
+        if (saldo >= valor) {
+            saldo -= valor
             println("Saldo atualizado: $saldo")
         } else {
             println("Não foi possível efetuar o saque!\nSaldo atual: $saldo")
         }
     }
 
-    fun transfere(valor: Double, destino : Conta): Boolean{
+    fun transfere(valor: Double, destino: Conta): Boolean {
 
-        if (valor <= saldo){
-            saldo-=valor
-            destino.saldo+=valor
+        if (valor <= saldo) {
+            saldo -= valor
+            destino.saldo += valor
             return true
         }
         return false
     }
 
-    fun getSaldo(): Double {
-        return saldo
-    }
-
-    fun setSaldo(valor: Double) {
-        if (valor > 0) {
-            saldo = valor
-        }
-    }
+//    fun getSaldo(): Double {
+//        return saldo
+//    }
+//
+//    fun setSaldo(valor: Double) {
+//        if (valor > 0) {
+//            saldo = valor
+//        }
+//    }
 
 }
 

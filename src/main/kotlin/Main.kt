@@ -18,7 +18,7 @@ fun main() {
     val lopes = Diretor(
         nome = "Lopes",
         cpf = "321.654.987-00",
-        salario = 10000.00,
+        salario = 4000.00,
         senha = 4000,
         plr = 200.00
     )

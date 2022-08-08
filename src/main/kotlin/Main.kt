@@ -5,22 +5,22 @@ fun main() {
     val contaRael = Conta()
     contaRael.titular = "Rael RZD"
     contaRael.numero = 1000
-    contaRael.saldo = 1000.0
+    contaRael.setSaldo(1000.0)
 
     val contaGui = Conta()
     contaGui.titular = "Gui Paizao"
     contaGui.numero = 1001
-    contaGui.saldo = 1500.0
+    contaGui.setSaldo(1500.0)
 
     println("Titular da conta: ${contaRael.titular}")
     println("Numero da conta: ${contaRael.numero}")
-    println("Saldo: R$ ${contaRael.saldo}")
+    println("Saldo: R$ ${contaRael.getSaldo()}")
 
     println()
 
     println("Titular da conta: ${contaGui.titular}")
     println("Numero da conta: ${contaGui.numero}")
-    println("Saldo: R$ ${contaGui.saldo}")
+    println("Saldo: R$ ${contaGui.getSaldo()}")
 
     println()
     contaRael.deposita(950.0)
@@ -41,11 +41,11 @@ fun main() {
     } else {
         println("Transferencia mal sucedida!")
     }
-    
+
 
     println()
-    println("Saldo atualizado: R$ ${contaRael.saldo}")
-    println("Saldo atualizado: R$ ${contaGui.saldo}")
+    println("Saldo atualizado: R$ ${contaRael.getSaldo()}")
+    println("Saldo atualizado: R$ ${contaGui.getSaldo()}")
 
 }
 
@@ -53,7 +53,7 @@ fun main() {
 class Conta {
     var titular = ""
     var numero = 0
-    var saldo = 0.0
+    private var saldo = 0.0
 
     fun deposita(valor: Double) {
         println("Depositando na conta de ${titular}")
@@ -79,6 +79,16 @@ class Conta {
             return true
         }
         return false
+    }
+
+    fun getSaldo(): Double {
+        return saldo
+    }
+
+    fun setSaldo(valor: Double) {
+        if (valor > 0) {
+            saldo = valor
+        }
     }
 
 }

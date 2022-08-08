@@ -34,6 +34,19 @@ fun main() {
     println()
     contaGui.saca(2500.0)
 
+    println()
+    println("Verificando possibilidade  de transferencia...")
+    if (contaRael.transfere(450.0, contaGui)){
+        println("Transferencia realizada com sucesso!")
+    } else {
+        println("Transferencia mal sucedida!")
+    }
+    
+
+    println()
+    println("Saldo atualizado: R$ ${contaRael.saldo}")
+    println("Saldo atualizado: R$ ${contaGui.saldo}")
+
 }
 
 
@@ -56,6 +69,16 @@ class Conta {
         } else {
             println("Não foi possível efetuar o saque!\nSaldo atual: $saldo")
         }
+    }
+
+    fun transfere(valor: Double, destino : Conta): Boolean{
+
+        if (valor <= saldo){
+            saldo-=valor
+            destino.saldo+=valor
+            return true
+        }
+        return false
     }
 
 }

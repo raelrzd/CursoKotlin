@@ -58,6 +58,13 @@ fun main() {
     }
 
 
+    val calculadora = CalculadoraBonificacao()
+    calculadora.registra(israel)
+    calculadora.registra(teteu)
+    calculadora.registra(lopes)
+    println()
+    println("Total de bonificação: ${calculadora.total}")
+
 }
 
 

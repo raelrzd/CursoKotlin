@@ -1,10 +1,13 @@
 abstract class FuncionarioAdmin(
-    val nome: String,
-    val cpf: String,
-    val salario: Double,
+    nome: String,
+    cpf: String,
+    salario: Double,
     val senha: Int
-) {
-    abstract fun bonificacao(): Double
+): Funcionario(
+    nome = nome,
+    cpf = cpf,
+    salario = salario
+){
 
     fun autentica(senha: Int): Boolean {
         if (this.senha == senha) {

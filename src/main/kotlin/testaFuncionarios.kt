@@ -83,8 +83,8 @@ fun testaFuncionarios() {
 
     val calculadora = CalculadoraBonificacao()
     calculadora.registra(israel)
-//    calculadora.registra(teteu)
-//    calculadora.registra(lopes)
+    calculadora.registra(teteu)
+    calculadora.registra(lopes)
     calculadora.registra(gui)
     calculadora.registra(marcia)
     println()

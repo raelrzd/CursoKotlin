@@ -2,7 +2,7 @@ fun testaFuncionarios() {
     val israel = Analista(
         nome = "Israel",
         cpf = "123.456.789-00",
-        salario = 1000.00,
+        salario = 1500.00,
     )
 
     val teteu = Gerente(
@@ -24,6 +24,12 @@ fun testaFuncionarios() {
         nome = "Gui",
         cpf = "777.777.777-89",
         salario = 2500.00
+    )
+
+    val marcia = Auxiliar(
+        nome = "Marcia",
+        cpf = "888.888.888-77",
+        salario = 1000.0
     )
 
     // impressão Funcionário (Israel)
@@ -67,12 +73,20 @@ fun testaFuncionarios() {
     println("Salário: ${gui.salario}")
     println("Bonificação: ${gui.bonificacao()}")
 
+    // impressão Auxiliar (Marcia)
+    println()
+    println("Auxiliar: ${marcia.nome}")
+    println("CPF: ${marcia.cpf}")
+    println("Salário: ${marcia.salario}")
+    println("Bonificação: ${marcia.bonificacao()}")
+
 
     val calculadora = CalculadoraBonificacao()
     calculadora.registra(israel)
     calculadora.registra(teteu)
     calculadora.registra(lopes)
     calculadora.registra(gui)
+    calculadora.registra(marcia)
     println()
     println("Total de bonificação: ${calculadora.total}")
 }

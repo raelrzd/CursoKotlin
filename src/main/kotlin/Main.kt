@@ -23,6 +23,12 @@ fun main() {
         plr = 200.00
     )
 
+    val gui = Analista(
+        nome = "Gui",
+        cpf = "777.777.777-89",
+        salario = 2500.00
+    )
+
     // impressão Funcionário (Israel)
     println("Funcionário: ${israel.nome}")
     println("CPF: ${israel.cpf}")
@@ -45,7 +51,7 @@ fun main() {
 
     // impressão Diretor (Lopes)
     println()
-    println("DIretor: ${lopes.nome}")
+    println("Diretor: ${lopes.nome}")
     println("CPF: ${lopes.cpf}")
     println("Salário: ${lopes.salario}")
     println("Bonificação: ${lopes.bonificacao()}")
@@ -57,11 +63,20 @@ fun main() {
         println("A autenticação falhou!")
     }
 
+    // impressão Analista (Gui)
+    println()
+    println("Analista: ${gui.nome}")
+    println("CPF: ${gui.cpf}")
+    println("Salário: ${gui.salario}")
+    println("Bonificação: ${gui.bonificacao()}")
+
+
 
     val calculadora = CalculadoraBonificacao()
     calculadora.registra(israel)
     calculadora.registra(teteu)
     calculadora.registra(lopes)
+    calculadora.registra(gui)
     println()
     println("Total de bonificação: ${calculadora.total}")
 

@@ -1,4 +1,4 @@
-class Conta(var titular: String, val numero: Int) {
+open class Conta(var titular: String, val numero: Int) {
     var saldo = 0.0
         private set
 
@@ -10,7 +10,7 @@ class Conta(var titular: String, val numero: Int) {
         }
     }
 
-    fun saca(valor: Double) {
+    open fun saca(valor: Double) {
         println("Valor de saque solicitado: R$$valor\nVerificando possibilidade de saque na conta de $titular...")
         if (saldo >= valor) {
             saldo -= valor

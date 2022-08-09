@@ -1,12 +1,13 @@
 fun testaContasDiferentes() {
-    val contaCorrente = ContaCorrente(
-        titular = "Rael",
-        numero = 2001
-    )
 
     val contaPoupanca = ContaPoupanca(
         titular = "Dan",
         numero = 2002
+    )
+
+    val contaCorrente = ContaCorrente(
+        titular = "Rael",
+        numero = 2001
     )
 
     contaPoupanca.deposita(valor = 1000.0)

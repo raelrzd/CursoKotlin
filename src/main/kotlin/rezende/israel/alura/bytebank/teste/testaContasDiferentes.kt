@@ -1,27 +1,50 @@
-import rezende.israel.alura.bytebank.modelo.Cliente
-import rezende.israel.alura.bytebank.modelo.ContaCorrente
-import rezende.israel.alura.bytebank.modelo.ContaPoupanca
-import rezende.israel.alura.bytebank.modelo.ContaSalario
+import rezende.israel.alura.bytebank.modelo.*
 
 fun testaContasDiferentes() {
 
-    val dan = Cliente(nome = "Dan", cpf = "", senha = 1)
+    val dan = Cliente(
+        nome = "Dan",
+        cpf = "",
+        senha = 1,
+        endereco = Endereco(
+            logradouro = "Travessa C"
+        )
+    )
     val contaPoupanca = ContaPoupanca(
         titular = dan,
         numero = 2002
     )
 
-    val rael = Cliente(nome = "Rael", cpf = "", senha = 2)
+    val rael = Cliente(
+        nome = "Rael",
+        cpf = "",
+        senha = 2,
+        endereco = Endereco(
+            logradouro = "Rua Santana"
+        )
+    )
     val contaCorrente = ContaCorrente(
         titular = rael,
         numero = 2001
     )
 
-    val denim = Cliente(nome = "Denim", cpf = "", senha = 3)
+    val denim = Cliente(
+        nome = "Denim",
+        cpf = "",
+        senha = 3,
+        endereco = Endereco(
+            logradouro = "Rua do Nely"
+        )
+    )
     val contaSalario = ContaSalario(
         titular = denim,
         numero = 2003
     )
+
+    println("======================================================")
+    println("Titular da conta: ${contaCorrente.titular.nome}\nEndereço: ${contaCorrente.titular.endereco.logradouro}")
+    println("======================================================")
+
 
     contaPoupanca.deposita(valor = 1000.0)
     contaCorrente.deposita(valor = 1000.0)

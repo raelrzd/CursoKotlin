@@ -23,5 +23,5 @@ fun testeAutenticacao() {
     val sistema = SistemaInterno()
     sistema.entra(dener, senha = 4321)
     sistema.entra(edu, senha = 1111)
-//    sistema.entra(cliente, senha = 7777)
+    sistema.entra(cliente, senha = 7777)
 }

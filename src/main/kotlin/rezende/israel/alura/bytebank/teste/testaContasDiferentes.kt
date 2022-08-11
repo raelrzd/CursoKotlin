@@ -41,11 +41,6 @@ fun testaContasDiferentes() {
         numero = 2003
     )
 
-    println("======================================================")
-    println("Titular da conta: ${contaCorrente.titular.nome}\nEndereço: ${contaCorrente.titular.endereco.logradouro}")
-    println("======================================================")
-
-
     contaPoupanca.deposita(valor = 1000.0)
     contaCorrente.deposita(valor = 1000.0)
     contaSalario.deposita(valor = 1000.0)
@@ -73,8 +68,6 @@ fun testaContasDiferentes() {
     println()
     contaSalario.saca(valor = 100.0)
     println("Saldo após saque inicial (Salario): ${contaSalario.saldo}")
-
-
 
 
 }

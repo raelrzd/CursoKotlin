@@ -1,17 +1,46 @@
 import rezende.israel.alura.bytebank.modelo.Cliente
 import rezende.israel.alura.bytebank.modelo.ContaCorrente
 import rezende.israel.alura.bytebank.modelo.ContaPoupanca
+import rezende.israel.alura.bytebank.modelo.Endereco
 
 fun testaComportamentosConta() {
     println()
 
-    val raelrzd = Cliente(nome = "Rael RZD", cpf = "", senha = 3)
-    val contaRael = ContaCorrente(titular = raelrzd, numero = 1000)
+    val raelrzd = Cliente(
+        nome = "Rael RZD",
+        cpf = "",
+        senha = 3
+    )
+    val contaRael = ContaCorrente(
+        titular = raelrzd,
+        numero = 1000
+    )
     contaRael.deposita(1000.0)
 
-    val guipapai = Cliente(nome = "Gui Paizao", cpf = "", senha = 1)
-    val contaGui = ContaPoupanca(titular = guipapai, numero = 1001)
+    val guipapai = Cliente(
+        nome = "Gui Paizao",
+        cpf = "",
+        senha = 1
+    )
+    val contaGui = ContaPoupanca(
+        titular = guipapai,
+        numero = 1001
+    )
     contaGui.deposita(1500.0)
+
+    val harold = Cliente(
+        nome = "Horold",
+        cpf = "",
+        senha = 12,
+        endereco = Endereco(
+            logradouro = "Vila SL"
+        )
+    )
+    val contaCorrenteH = ContaCorrente(
+        titular = harold,
+        numero = 4001
+    )
+    contaCorrenteH.deposita(2500.0)
 
     println()
     println("Titular da conta: ${contaRael.titular.nome}")

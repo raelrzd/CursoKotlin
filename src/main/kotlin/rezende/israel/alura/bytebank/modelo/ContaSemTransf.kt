@@ -1,10 +1,18 @@
 package rezende.israel.alura.bytebank.modelo
 
+var totalContas = 0
+    private set
+
 abstract class ContaSemTransf(
     var titular: Cliente,
     val numero: Int
 ) {
-    var saldo = 0.0
+
+    init {
+        totalContas++
+    }
+
+    abstract var saldo: Double
         protected set
 
     fun deposita(valor: Double) {
@@ -16,14 +24,14 @@ abstract class ContaSemTransf(
         }
     }
 
-    fun saca(valor: Double) {
-        println("Valor de saque solicitado: R$$valor\nVerificando possibilidade de saque na conta de ${titular.nome}...")
-        if (saldo >= valor) {
-            saldo -= valor
-            println("Saldo atualizado: $saldo")
-        } else {
-            println("Não foi possível efetuar o saque!\nSaldo atual: $saldo")
-        }
-    }
+    abstract fun saca(valor: Double) //{
+//        println("Valor de saque solicitado: R$$valor\nVerificando possibilidade de saque na conta de ${titular.nome}...")
+//        if (saldo >= valor) {
+//            saldo -= valor
+//            println("Saldo atualizado: $saldo")
+//        } else {
+//            println("Não foi possível efetuar o saque!\nSaldo atual: $saldo")
+//        }
+//    }
 
 }

@@ -9,4 +9,14 @@ class Endereco (
     var cep: Int = 0,
     var complemento: String = ""
         ){
+
+    override fun toString(): String {
+        return """logradouro='$logradouro',
+numero=$numero,
+bairro='$bairro',
+cidade='$cidade', 
+estado='$estado', 
+cep=$cep, 
+complemento='$complemento'""".trimMargin()
+    }
 }

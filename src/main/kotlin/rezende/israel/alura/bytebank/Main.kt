@@ -11,9 +11,9 @@ fun main() {
 
     println()
     println("======================================================")
-    
 
-    println("Total de contas: $totalContas")
+
+    println("Total de contas: ${ContaSemTransf.totalContas}")
 
 }
 

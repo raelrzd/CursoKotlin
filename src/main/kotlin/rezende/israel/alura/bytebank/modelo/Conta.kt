@@ -9,16 +9,6 @@ abstract class Conta(
 ) {
 
     override var saldo = 0.0
-//        protected set
-
-//    fun deposita(valor: Double) {
-//        if (valor > 0) {
-//            println()
-//            println("Depositando na conta de ${titular.nome}")
-//            this.saldo += valor
-//            println("Saldo atualizado: R$${saldo}")
-//        }
-//    }
 
     abstract override fun saca(valor: Double)
 

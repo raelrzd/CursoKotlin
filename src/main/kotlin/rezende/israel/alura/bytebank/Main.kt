@@ -4,11 +4,11 @@ fun main() {
     println("Bem vindo ao ByteBank")
     println()
 
-    var ola = "Ola"
-    println(ola.toString())
+//    var ola = "Ola"
+//    println(ola.toString())
 
-    var enderecoFT = Endereco(logradouro = "Av Pres. Vargas")
-    var enderecoHM = Endereco(logradouro = "Rua Santana")
+    var enderecoFT = Endereco(logradouro = "Av Pres. Vargas", numero = 21)
+    var enderecoHM = Endereco(logradouro = "Av Pres. Vargas", numero = 21)
 
     println(enderecoHM.equals(enderecoFT))
 

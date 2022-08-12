@@ -61,10 +61,9 @@ fun testaContasDiferentes() {
 
     println()
     try {
-        contaPoupanca.transfere(valor = 1000.0, destino = contaCorrente)
-    } catch (e: SaldoInsuficienteException){
+        contaPoupanca.transfere(valor = 100.0, destino = contaCorrente, senha = 3)
+    } catch (e: SaldoInsuficienteException) {
         println("Falha na transferencia!!")
-        println("Saldo insuficiente!!")
         e.printStackTrace()
     }
 

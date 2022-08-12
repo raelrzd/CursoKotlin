@@ -1,7 +1,5 @@
 package rezende.israel.alura.bytebank.modelo
 
-import rezende.israel.alura.bytebank.modelo.Conta
-
 class ContaCorrente(
     titular: Cliente,
     numero: Int

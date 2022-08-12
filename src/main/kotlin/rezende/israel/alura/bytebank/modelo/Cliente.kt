@@ -1,7 +1,5 @@
 package rezende.israel.alura.bytebank.modelo
 
-import rezende.israel.alura.bytebank.modelo.Autenticavel
-
 class Cliente(
     val nome: String,
     val cpf: String,

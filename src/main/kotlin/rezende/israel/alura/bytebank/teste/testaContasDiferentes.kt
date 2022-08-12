@@ -1,3 +1,4 @@
+import rezende.israel.alura.bytebank.exception.SaldoInsuficienteException
 import rezende.israel.alura.bytebank.modelo.*
 
 fun testaContasDiferentes() {
@@ -59,7 +60,14 @@ fun testaContasDiferentes() {
     println("Saldo após saque inicial (Corrente): ${contaCorrente.saldo}")
 
     println()
-    contaPoupanca.transfere(valor = 100.0, destino = contaCorrente)
+    try {
+        contaPoupanca.transfere(valor = 1000.0, destino = contaCorrente)
+    } catch (e: SaldoInsuficienteException){
+        println("Falha na transferencia!!")
+        println("Saldo insuficiente!!")
+        e.printStackTrace()
+    }
+
 
     println()
     println("Saldo após transferencia inicial (Poupança): ${contaPoupanca.saldo}")

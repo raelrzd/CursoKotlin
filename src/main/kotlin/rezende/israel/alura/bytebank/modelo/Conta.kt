@@ -1,5 +1,7 @@
 package rezende.israel.alura.bytebank.modelo
 
+import rezende.israel.alura.bytebank.exception.SaldoInsuficienteException
+
 abstract class Conta(
     titular: Cliente,
     numero: Int
@@ -12,17 +14,28 @@ abstract class Conta(
 
     abstract override fun saca(valor: Double)
 
-    fun transfere(valor: Double, destino: Conta): Boolean {
+    fun transfere(valor: Double, destino: Conta) {
         println("Verificando possibilidade de transferencia da conta de ${titular.nome} para ${destino.titular.nome}")
-        if (valor <= saldo) {
+        if (valor > saldo) {
+            throw SaldoInsuficienteException()
+        } else {
             saldo -= valor
             destino.saldo += valor
             println("Transferencia realizada com sucesso!!")
-            return true
         }
-        println("Não foi possível realizar a transferencia!!")
-        return false
     }
+
+//    fun transfere(valor: Double, destino: Conta): Boolean {
+//        println("Verificando possibilidade de transferencia da conta de ${titular.nome} para ${destino.titular.nome}")
+//        if (valor <= saldo) {
+//            saldo -= valor
+//            destino.saldo += valor
+//            println("Transferencia realizada com sucesso!!")
+//            return true
+//        }
+//        println("Não foi possível realizar a transferencia!!")
+//        return false
+//    }
 
 //    fun getSaldo(): Double {
 //        return saldo

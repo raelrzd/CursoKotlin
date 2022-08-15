@@ -54,6 +54,7 @@ fun calculaAumentoRelativo(salario: BigDecimal, aumento: BigDecimal): BigDecimal
         salario + "500.00".toBigDecimal()
     } else {
         (salario * aumento).setScale(2, RoundingMode.UP)
+        
     }
 }
 

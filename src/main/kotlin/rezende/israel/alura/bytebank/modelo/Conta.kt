@@ -18,6 +18,7 @@ abstract class Conta(
     fun transfere(valor: Double, destino: Conta, senha: Int) {
         println("Verificando possibilidade de transferencia da conta de ${titular.nome} para ${destino.titular.nome}")
         if (valor > saldo) {
+            println("Falha na transferencia!! Saldo insuficiente.")
             throw SaldoInsuficienteException(mensagem = "Saldo insuficiente!! Saldo atual: $saldo. Valor solicitado para transferencia: $valor")
         } else {
             if (titular.autentica(senha) == true) {
@@ -25,14 +26,8 @@ abstract class Conta(
                 destino.saldo += valor
                 println("Transferencia realizada com sucesso!!")
             } else {
-                try {
-                    throw SenhaIncorretaException()
-                } catch (e: SenhaIncorretaException) {
-                    println("Falha na Transferencia!! Senha incorreta.")
-                    e.printStackTrace()
-                }
-
-
+                println("Falha na Transferencia!! Senha incorreta.")
+                throw SenhaIncorretaException()
             }
         }
     }

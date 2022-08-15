@@ -1,4 +1,5 @@
 import rezende.israel.alura.bytebank.exception.SaldoInsuficienteException
+import rezende.israel.alura.bytebank.exception.SenhaIncorretaException
 import rezende.israel.alura.bytebank.modelo.*
 
 fun testaContasDiferentes() {
@@ -61,9 +62,15 @@ fun testaContasDiferentes() {
 
     println()
     try {
-        contaPoupanca.transfere(valor = 100.0, destino = contaCorrente, senha = 3)
+        contaPoupanca.transfere(valor = 100.0, destino = contaCorrente, senha = 1)
     } catch (e: SaldoInsuficienteException) {
-        println("Falha na transferencia!!")
+        e.printStackTrace()
+    }
+    catch (e: SenhaIncorretaException) {
+        e.printStackTrace()
+    }
+    catch (e: Exception){
+        println("Falha!! Erro desconhecido.")
         e.printStackTrace()
     }
 

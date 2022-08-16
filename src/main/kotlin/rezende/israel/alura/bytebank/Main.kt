@@ -1,4 +1,5 @@
 import rezende.israel.alura.arrays_e_lists.modelos.Livro
+import rezende.israel.alura.arrays_e_lists.modelos.Prateleira
 
 fun main() {
 
@@ -43,8 +44,8 @@ fun main() {
     meusLivros.imprimeListaComMarcadores()
 
 
-    meusLivros.remove(livro3)
-    meusLivros.imprimeListaComMarcadores()
+//    meusLivros.remove(livro3)
+//    meusLivros.imprimeListaComMarcadores()
 
 
     val listaOdernadaPorAno: List<Livro> = meusLivros.sorted()
@@ -54,10 +55,23 @@ fun main() {
     meusLivros.sortedBy { it.autor }.imprimeListaComMarcadores()
 
     val titulos: List<String> = meusLivros.titulosPorAnoPublicacaoDoAutor("João")
-    println(titulos.joinToString(separator = "\n"){
+    println(titulos.joinToString(separator = "\n") {
         "Titulo: ${it.toString()}"
     })
 
+    println()
+    meusLivros.groupBy { it.editora ?: "Editora desconhecida" }.forEach { editora: String, livros: List<Livro> ->
+        println("$editora: ${livros.joinToString { it.titulo }}")
+    }
+
+    val prateleira = Prateleira(genero = "LIteratura", livros = meusLivros)
+
+    val porAutor = prateleira.organizaLivrosPorAutor()
+    val porAnoPublicacao = prateleira.organizaLivrosPorAnoPublicacao()
+
+    println("================================")
+    porAutor.imprimeListaComMarcadores()
+    porAnoPublicacao.imprimeListaComMarcadores()
 
 }
 
@@ -66,10 +80,12 @@ fun List<Livro>.titulosPorAnoPublicacaoDoAutor(prefixoAutor: String): List<Strin
     return this.filter { it.autor.startsWith(prefixoAutor) }.sortedBy { it.anoPublicacao }.map { it.titulo }
 }
 
-fun List<Livro>.imprimeListaComMarcadores() {
-    val listaComMarcadores = this.joinToString(separator = "\n") {
-        "Titulo: ${it.titulo} - Autor: ${it.autor}"
-    }
+fun List<Livro?>.imprimeListaComMarcadores() {
+    val listaComMarcadores = this
+        .filterNotNull()
+        .joinToString(separator = "\n") {
+            "Titulo: ${it.titulo} - Autor: ${it.autor}"
+        }
     println("#### LISTA DE LIVROS ####\n${listaComMarcadores}")
     println()
 }

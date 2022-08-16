@@ -40,6 +40,40 @@ fun main() {
     println(salariosComAumento.contentToString())
 
 
+    //MEDIA DOS 3 MAIORES SALARIOS COM AUMENTO
+    val mediaMaioresSalarios = salariosComAumento.sorted().takeLast(3).toTypedArray().media()
+    println("Media dos maiores salarios: $mediaMaioresSalarios")
+
+    //MEDIA DOS 3 MENORES SALARIOS COM AUMENTO
+    val mediaMenoresSalarios = salariosComAumento.sorted().take(3).toTypedArray().media()
+    println("Media dos menores salarios: $mediaMenoresSalarios")
+
+    //CALCULA O VALOR GASTO EM 6 MESES DE SALARIOS APÓS O AUMENTO
+    val gastoInicial = salariosComAumento.somatoria()
+    val meses = "6".toBigDecimal()
+    val salarios6Meses = salariosComAumento.fold(gastoInicial){ acumulador, salario ->
+        acumulador + (salario * meses).setScale(2, RoundingMode.UP)
+    }
+    println("Salarios total de 6 meses: $salarios6Meses")
+
+}
+
+
+
+
+fun Array<BigDecimal>.media(): BigDecimal {
+    return if (this.isEmpty()){
+        BigDecimal.ZERO
+    } else {
+        this.somatoria() / this.size.toBigDecimal()
+    }
+
+}
+
+fun Array<BigDecimal>.somatoria(): BigDecimal{
+    return this.reduce { acumulador, valor ->
+        acumulador + valor
+    }
 }
 
 
@@ -54,7 +88,7 @@ fun calculaAumentoRelativo(salario: BigDecimal, aumento: BigDecimal): BigDecimal
         salario + "500.00".toBigDecimal()
     } else {
         (salario * aumento).setScale(2, RoundingMode.UP)
-        
+
     }
 }
 

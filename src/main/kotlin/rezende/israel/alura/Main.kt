@@ -1,25 +1,16 @@
 fun main() {
-    val banco = BancoDeNomes()
-    val nomesSalvos: Collection<String> = banco.nomes
-    banco.salva("Alex")
-    println(nomesSalvos)
-    println(BancoDeNomes().nomes)
+
+    val assistiramCursoAndroid: Set<String> = setOf("Rael", "Dan", "Harold", "Teteu")
+    val assistiramCursoKotlin: Set<String> = setOf("Rael", "Gui", "Lopes", "Dan")
+    //val assistiramAmbos: MutableSet<String> = assistiramCursoKotlin + assistiramCursoAndroid
+    val assistiramAmbos = mutableSetOf<String>()
+    assistiramAmbos.addAll(assistiramCursoAndroid)
+    assistiramAmbos.addAll(assistiramCursoKotlin)
+
+    assistiramAmbos.add("Yokota")
+    assistiramAmbos.add("Yokota")
+
+    println(assistiramAmbos)
 
 
 }
-
-
-class BancoDeNomes {
-    val nomes: Collection<String> get() = dados.toList()
-    fun salva(nome: String) {
-        dados.add(nome)
-    }
-
-    companion object {
-        private val dados = mutableListOf<String>()
-    }
-
-}
-
-
-

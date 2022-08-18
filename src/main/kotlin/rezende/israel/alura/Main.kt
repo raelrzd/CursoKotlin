@@ -9,17 +9,17 @@ fun main() {
     println(minhaFuncaoClasse(5, 10))
 
     //VARIAVEL FUNCIONAL LAMBDA
-    val minhaFuncaoLambda: () -> Unit = {
-        println("Executando como lambda")
+    val minhaFuncaoLambda: (Int, Int) -> Int = { a: Int, b: Int ->
+        a + b
     }
 
     //VARIAVEL FUNCIONAL ANONIMA
-    val minhaFuncaoAnonima: () -> Unit = fun() {
-        println("Executa como anonima")
+    val minhaFuncaoAnonima: (Int, Int) -> Int = fun(a: Int, b: Int): Int {
+        return a + b
     }
 
-    println(minhaFuncaoLambda())
-    println(minhaFuncaoAnonima())
+    println(minhaFuncaoLambda(25, 20))
+    println(minhaFuncaoAnonima(20, 15))
 
 
 }

@@ -66,12 +66,9 @@ fun testaComportamentosConta() {
     contaGui.saca(valor = 2500.0)
 
     println()
-    println("Verificando possibilidade  de transferencia...")
-    if (contaRael.transfere(valor = 450.0, destino = contaGui)) {
-        println("Transferencia realizada com sucesso!")
-    } else {
-        println("Transferencia mal sucedida!")
-    }
+
+    contaRael.transfere(valor = 200.0, destino = contaGui, senha = 1)
+
 
 
     println()

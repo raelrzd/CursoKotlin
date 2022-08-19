@@ -1,26 +1,23 @@
-import rezende.israel.alura.bytebank.modelo.Endereco
-import java.util.*
-import kotlin.math.E
-import kotlin.math.log
+import rezende.israel.alura.bytebank.modelo.Autenticavel
+import rezende.israel.alura.bytebank.modelo.SistemaInterno
+import rezende.israel.alura.bytebank.modelo.Autenticavel as A
 
 fun main() {
+    soma(3, 5, resultado = (::println))
 
-
-    Endereco(logradouro = "rua santana", numero = 333).let { endereco ->
-        val enderecoMaisculo: String = "${endereco.logradouro}, ${endereco.numero}".uppercase()
-        println(enderecoMaisculo)
+    val testeAutentica = object: Autenticavel{
+        val senha = 1234
+        override fun autentica(senha: Int): Boolean = this.senha == senha
     }
 
-    listOf(
-        Endereco(logradouro = "Rua Santana", numero = 333, complemento = "casa"),
-        Endereco(logradouro = "Av presidente vargas", numero = 444)).filter { endereco ->
-        endereco.complemento.isNotEmpty()
-    }.let ( ::println)
+    SistemaInterno().entra(testeAutentica, senha = 1234, apos = {
+        println("Realizar operação bancaria")
+    })
 
-    
+}
 
-//    val endereco = Endereco(logradouro = "rua vergueiro", numero = 3185)
-//    val enderecoEmMaiusculo = "${endereco.logradouro}, ${endereco.numero}".uppercase(Locale.getDefault())
-//    println(enderecoEmMaiusculo)
-
+fun soma(a: Int, b: Int, resultado: (Int) -> Unit) {
+    println("Prestes a executar a soma")
+    resultado(a + b)
+    println("Soma executada")
 }

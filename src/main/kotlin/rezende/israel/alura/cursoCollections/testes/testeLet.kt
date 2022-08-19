@@ -3,8 +3,9 @@ package rezende.israel.alura.cursoCollections.testes
 import rezende.israel.alura.bytebank.modelo.Endereco
 
 fun testeLet() {
-    Endereco(logradouro = "rua santana", numero = 333).let { endereco ->
-        val enderecoMaisculo: String = "${endereco.logradouro}, ${endereco.numero}".uppercase()
+    Endereco(logradouro = "rua santana", numero = 333).run {
+        "$logradouro, $numero".uppercase()
+    }.let{enderecoMaisculo: String ->
         println(enderecoMaisculo)
     }
 

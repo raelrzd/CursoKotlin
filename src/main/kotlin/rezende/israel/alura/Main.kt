@@ -1,24 +1,24 @@
-import rezende.israel.alura.bytebank.modelo.Autenticavel
-import rezende.israel.alura.bytebank.modelo.SistemaInterno
-import rezende.israel.alura.cursoCollections.testes.testeLet
+import rezende.israel.alura.bytebank.modelo.Endereco
+import rezende.israel.alura.cursoCollections.testes.testaAutenticaVarFuncional
+import java.security.cert.CertPath
 
 fun main() {
-//    soma(3, 5, resultado = (::println))
-//
-//    val testeAutentica = object : Autenticavel {
-//        val senha = 1234
-//        override fun autentica(senha: Int): Boolean = this.senha == senha
-//    }
-//
-//    SistemaInterno().entra(testeAutentica, senha = 1234, apos = {
-//        println("Realizar operação bancaria")
-//    })
 
-    testeLet()
+    with(Endereco()){
+        logradouro = "Rua Santana"
+        numero = 209
+        bairro = "Labienópolis"
+        cidade = "Garça"
+        estado = "SP"
+        cep= 17404252
+        complemento="Casa"
+        completo()
+    }.let { enderecoCompleto: String ->
+        println(enderecoCompleto)
+    }
+
+
 }
 
-//fun soma(a: Int, b: Int, resultado: (Int) -> Unit) {
-//    println("Prestes a executar a soma")
-//    resultado(a + b)
-//    println("Soma executada")
-//}
+
+

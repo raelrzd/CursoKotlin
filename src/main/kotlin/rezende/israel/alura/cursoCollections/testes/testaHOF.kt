@@ -13,12 +13,33 @@ fun testaAutenticaVarFuncional() {
 
     soma(3, 5, resultado = (::println))
 
+    fun somaReceiver(a: Int, b: Int, resultado: Int.() -> Unit) {
+        println("Prestes a executar a soma")
+        val total: Int = a + b
+        total.resultado()
+        println("Soma executada")
+    }
+
+    somaReceiver(3, 5, resultado = (::println))
+
+
     val testeAutentica = object : Autenticavel {
         val senha = 1234
         override fun autentica(senha: Int): Boolean = this.senha == senha
     }
 
-    SistemaInterno().entra(testeAutentica, senha = 1234, apos = {
+    val sistema = SistemaInterno()
+
+    println()
+
+    sistema.entra(testeAutentica, senha = 1234, apos = {
         println("Realizar operação bancaria")
     })
+
+    println()
+
+    sistema.entraReceiver(testeAutentica, 1234, apos = {
+        pagamento()
+    })
+
 }
